@@ -1,0 +1,37 @@
+<mvc:View
+    controllerName="sap.ui.demo.walkthrough.controller.InvoiceList"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+    <Table id="invoiceList" items="{invoice>/}" class="sapUiResponsiveMargin" width="auto">
+        <headerToolbar>
+            <Toolbar>
+                <Title text="Invoice List"/>
+                <ToolbarSpacer/>
+                <SearchField width="50%" search=".onSearch"/>
+            </Toolbar>
+        </headerToolbar>
+        <columns>
+            <Column>
+                <Text text="Nome"/>
+            </Column>
+            <Column>
+                <Text text="Completado"/>
+            </Column>
+            <Column>
+                <Text text="Detalhes"/>
+            </Column>
+        </columns>
+        <items>
+            <ColumnListItem>
+                <cells>
+                    <Text text="{invoice>title}"/>
+                    <CheckBox selected="{invoice>completed}"/>
+                    <Button text="Detalhes" press=".onPressDetails" 
+                            type="Transparent" 
+                            tooltip="Exibir detalhes do objeto"
+                            enabled="true"/>
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+</mvc:View>
